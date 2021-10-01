@@ -1,4 +1,5 @@
 sudo: "required"
+language: generic
 
 # Tells Travis we require Docker
 services:
@@ -6,4 +7,10 @@ services:
 
 # Series of setup before running test, deploying, etc.
 before_install:
-  - docker build -t mrmasson/udemy-docker -f Dockerfile.dev .
+  - docker build -t mrmasson/udemy-docker-frontend -f Dockerfile.dev .
+
+# Command required to run the test suites
+# Travis CI will watch output of each command. If it returns something
+# else then 0, it assume a fail.
+script:
+  - docker run -e CI=true mrmasson/udemy-docker-frontend npm run test
