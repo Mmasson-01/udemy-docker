@@ -13,4 +13,4 @@ before_install:
 # Travis CI will watch output of each command. If it returns something
 # else then 0, it assume a fail.
 script:
-  - docker run -e CI=true mrmasson/udemy-docker-frontend npm run test
+  - docker run -e CI=true mrmasson/udemy-docker-frontend npm run test -- --coverage
