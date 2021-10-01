@@ -1,0 +1,9 @@
+sudo: "required"
+
+# Tells Travis we require Docker
+services:
+  - docker
+
+# Series of setup before running test, deploying, etc.
+before_install:
+  - docker build -t mrmasson/udemy-docker -f Dockerfile.dev .
