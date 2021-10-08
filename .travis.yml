@@ -14,3 +14,16 @@ before_install:
 # else then 0, it assume a fail.
 script:
   - docker run -e CI=true mrmasson/udemy-docker-frontend npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2"
+  app: "mmasson-docker-react-section6"
+  environment: "Mmassondockerreactsection6-env"
+  bucket_name: "elasticbeanstalk-us-west-2-107361703462"
+  bucket_path: "mmasson-docker-react-section6"
+  on:
+    branch: main
+  access_key_id: $S3_ACCESS_KEY
+  secret_access_key:
+    secure: $S3_SECRET_KEY
