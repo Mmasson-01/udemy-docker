@@ -19,7 +19,7 @@ deploy:
   provider: elasticbeanstalk
   region: "us-west-2"
   app: "mmasson-docker-react-section6"
-  environment: "Mmassondockerreactsection6-env"
+  env: "Mmassondockerreactsection6-env"
   bucket_name: "elasticbeanstalk-us-west-2-107361703462"
   bucket_path: "mmasson-docker-react-section6"
   on:
